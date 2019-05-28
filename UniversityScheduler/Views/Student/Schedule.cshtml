@@ -1,0 +1,20 @@
+﻿@using System.Globalization
+@model List<UniversityScheduler.Models.LectureViewModel>
+
+@{
+    ViewBag.Title = "Plan zajęć";
+    Layout = "_Layout";
+}
+
+<h3>Plan zajęć</h3>
+
+@foreach (var day in Model.GroupBy(x => x.DayOfWeek))
+{
+    @Html.Raw($"<div class='day'><h4 class='day-header'>{DateTimeFormatInfo.CurrentInfo.GetDayName(day.Key)}</h4>");
+    foreach (var lecture in day.OrderBy(x => x.StartTime))
+    {
+        @Html.Raw($"<div><b>{lecture.SubjectName}</b></div>");
+        @Html.Raw($"<div>Od {lecture.StartTime} do {lecture.EndTime}</div>");
+    }
+    @Html.Raw("</div>");
+}

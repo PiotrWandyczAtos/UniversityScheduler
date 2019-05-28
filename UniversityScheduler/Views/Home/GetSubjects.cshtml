@@ -1,0 +1,9 @@
+﻿@model List<SubjectViewModel>
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+@foreach (var item in Model) {
+    @Html.Raw(item.Name)
+}
