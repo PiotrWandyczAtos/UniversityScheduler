@@ -165,6 +165,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="UniversityScheduler.Database.publish.xml" />
+    <None Include="CreateSchedule.sql" />
   </ItemGroup>
   <ItemGroup>
     <PostDeploy Include="PostDeployment.sql">
